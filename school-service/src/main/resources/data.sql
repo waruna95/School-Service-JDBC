@@ -1,0 +1,1 @@
+INSERT INTO book_seq (next_val) values (1)
