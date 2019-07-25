@@ -24,55 +24,13 @@ public class SchoolJDBC {
     public void setDataSource(QueryGenerator query) {
         String connName = query.getRoot();
         String connPassword = query.getPassword();
-        String myDriver = query.getMyDriver();
-        String myUrl = query.getMyUrl();
+        String database = query.getDatabase();
+        String url = query.getMyUrl();
+        String myUrl = url+database;
 
-        DataSource dataSource = new DataSource() {
-            @Override
-            public Connection getConnection() throws SQLException {
-                return null;
-            }
+        String myDriver = "com.mysql.jdbc.Driver";
 
-            @Override
-            public Connection getConnection(String username, String password) throws SQLException {
-                return null;
-            }
-
-            @Override
-            public <T> T unwrap(Class<T> iface) throws SQLException {
-                return null;
-            }
-
-            @Override
-            public boolean isWrapperFor(Class<?> iface) throws SQLException {
-                return false;
-            }
-
-            @Override
-            public PrintWriter getLogWriter() throws SQLException {
-                return null;
-            }
-
-            @Override
-            public void setLogWriter(PrintWriter out) throws SQLException {
-
-            }
-
-            @Override
-            public void setLoginTimeout(int seconds) throws SQLException {
-
-            }
-
-            @Override
-            public int getLoginTimeout() throws SQLException {
-                return 0;
-            }
-
-            @Override
-            public Logger getParentLogger() throws SQLFeatureNotSupportedException {
-                return null;
-            }
-        };
+        DataSource dataSource;
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName(myDriver);
         dataSourceBuilder.url(myUrl);

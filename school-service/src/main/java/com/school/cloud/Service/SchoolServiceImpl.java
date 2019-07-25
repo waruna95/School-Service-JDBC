@@ -51,16 +51,17 @@ public class SchoolServiceImpl implements SchoolService{
         String connName = query.getRoot();
         String connPassword = query.getPassword();
         String exeQuery = query.getQuery();
-        String myDriver = query.getMyDriver();
-        String myUrl =  query.getMyUrl();
+        String database = query.getDatabase();
+        String url =  query.getMyUrl();
 
+        String myUrl = url+database;
 
         School school = new School();
         List<School> schools = new ArrayList<>();
 
         // create our mysql database connection
         try {
-            // String myDriver = "com.mysql.jdbc.Driver";
+            String myDriver = "com.mysql.jdbc.Driver";
             //String myUrl = "jdbc:mysql://localhost:3306/schooldb";
             Class.forName(myDriver);
             Connection conn = DriverManager.getConnection(myUrl, connName, connPassword);

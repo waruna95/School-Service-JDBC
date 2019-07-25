@@ -5,11 +5,11 @@ public class QueryGenerator {
     String root;
     String password;
     String query;
-    String myDriver;
+    String database;
     String myUrl;
 
-    public String getMyDriver() {
-        return myDriver;
+    public String getDatabase() {
+        return database;
     }
 
     public String getMyUrl() {
@@ -20,8 +20,8 @@ public class QueryGenerator {
         this.myUrl = myUrl;
     }
 
-    public void setMyDriver(String myDriver) {
-        this.myDriver = myDriver;
+    public void setDatabase(String database) {
+        this.database = database;
     }
 
     public String getPassword() {
